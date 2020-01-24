@@ -8,3 +8,9 @@ Creating the nubank interface by RocketSeat
 
 
 ![WhatsApp Image 2020-01-24 at 20 30 16 (1)](https://user-images.githubusercontent.com/37390930/73111287-9452a380-3ee8-11ea-8960-d1999c153483.jpeg)
+
+
+
+# technologies
+
+React-Native, Expo, Styled components and Material Icons
