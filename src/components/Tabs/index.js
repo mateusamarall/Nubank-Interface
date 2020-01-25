@@ -1,9 +1,27 @@
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-export default function Tabs() {
+import { Container } from './styles';
+export default function Tabs({ translateY }) {
 	return (
-		<View style={styles.container}>
+		<Container
+			style={{
+				transform: [
+					{
+						translateY: translateY.interpolate({
+							inputRange: [0, 380],
+							outputRange: [0, 30],
+							extrapolate: 'clamp'
+						})
+					}
+				],
+				opacity: translateY.interpolate({
+					inputRange: [0, 380],
+					outputRange: [1, 0.3],
+					extrapolate: 'clamp'
+				})
+			}}
+		>
 			<ScrollView
 				style={styles.TabsContainer}
 				contentContainerStyle={styles.scrollview}
@@ -35,14 +53,10 @@ export default function Tabs() {
 					<Text style={styles.TabText}>Bloquear Cartão</Text>
 				</View>
 			</ScrollView>
-		</View>
+		</Container>
 	);
 }
 const styles = StyleSheet.create({
-	container: {
-		height: 100,
-		marginTop: 20
-	},
 	scrollview: {
 		paddingLeft: 10,
 		paddingRight: 20

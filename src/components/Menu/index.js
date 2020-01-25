@@ -8,12 +8,17 @@ import {
 	Text,
 	TouchableOpacity
 } from 'react-native';
-export default function Menu() {
+import { Container } from './styles';
+export default function Menu({ translateY }) {
 	return (
 		<>
-			<ScrollView
-				style={styles.container}
-				contentContainerStyle={styles.scrollview}
+			<Container
+				style={{
+					opacity: translateY.interpolate({
+						inputRange: [0, 150],
+						outputRange: [0, 1]
+					})
+				}}
 			>
 				<View style={styles.code}>
 					<QRCode
@@ -47,22 +52,19 @@ export default function Menu() {
 				<TouchableOpacity onPress={() => {}} style={styles.signout}>
 					<Text style={styles.textOut}>SAIR DO APP</Text>
 				</TouchableOpacity>
-			</ScrollView>
+			</Container>
 		</>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		margin: 0,
-		marginHorizontal: 30
-	},
 	scrollview: {
 		alignItems: 'center'
 	},
 	code: {
 		backgroundColor: '#FFF',
-		padding: 10
+		padding: 10,
+		alignSelf: 'center'
 	},
 	nav: {
 		marginTop: 30,
